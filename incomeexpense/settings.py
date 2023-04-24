@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-9@m!l07-sg21gzy$@3j8%xc=l%py(peu08#%t4b-$qrpo0smfh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost",'https://incomeexpense-connecttoamalmathew.b4a.run']
+ALLOWED_HOSTS = ["127.0.0.1","localhost",'incomeexpense-connecttoamalmathew.b4a.run']
 
 
 # Application definition

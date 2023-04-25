@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'expenseincome',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost' ,
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

@@ -1,25 +1,30 @@
+
 # Use an official Python runtime as a parent image
 FROM python:3.9
 
 ENV PYTHONUNBUFFERED = 1
 
-# Set the working directory to /app
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /code
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the requirements file into the container
+COPY . /code
 
-# Install any needed packages specified in requirements.txt
-#RUN pip install --trusted-host pypi.python.org -r requirements.txt
-RUN pip install -r requirements.txt
+# Install the required packages
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the Django project files into the container
 COPY . .
 
-# Make port 8000 available to the world outside this container
+# Set environment variables
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_HOST=localhost
+ENV POSTGRES_PORT=5432
+ENV POSTGRES_DB=expenseincome
+
+# Expose port 8000 for the Django app
 EXPOSE 8000
 
-# Define environment variable
-#ENV NAME venv
-
-# Run app.py when the container launches
+# Run migrations and start the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

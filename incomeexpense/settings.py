@@ -151,3 +151,24 @@ DEFAULT_FROM_EMAIL='whoareyou@gmail.com'
 EMAIL_HOST_PASSWORD='mlpyloklzxxhatrn'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
+
+# settings.py
+
+# Ensure CSRF protection is enforced over HTTPS connections
+CSRF_COOKIE_SECURE = True
+
+# Set the domain for the CSRF cookie
+CSRF_COOKIE_DOMAIN = 'incomeexpense-connecttoamalmathew.b4a.run'
+CORS_ORIGIN_WHITELIST = [
+    'https://incomeexpense-connecttoamalmathew.b4a.run',
+    # Add more origins if needed
+]
+
+# settings.py
+
+# Enforce secure cookies over HTTPS
+SESSION_COOKIE_SECURE = True
+
+# Configure SameSite attribute for cookies
+SESSION_COOKIE_SAMESITE = 'Lax'
+

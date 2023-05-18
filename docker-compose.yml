@@ -1,31 +1,15 @@
-version: '3.9'
-
+version: '3.11'
 services:
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: expenseincome
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-
   web:
     build: .
-    restart: always
+    command: gunicorn --bind 0.0.0.0:8000 incomeexpense.wsgi:application
     ports:
       - "8000:8000"
     depends_on:
       - db
+  db:
+    image: postgres:12
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_HOST: localhost
-      POSTGRES_PORT: 5432
-      POSTGRES_DB: expenseincome
-
-volumes:
-  postgres_data:
+      - POSTGRES_DB=expenseincome
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password

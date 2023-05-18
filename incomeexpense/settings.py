@@ -159,8 +159,9 @@ CSRF_COOKIE_SECURE = True
 
 # Set the domain for the CSRF cookie
 CSRF_COOKIE_DOMAIN = 'incomeexpense-connecttoamalmathew.b4a.run'
+
 CORS_ORIGIN_WHITELIST = [
-    'https://incomeexpense-connecttoamalmathew.b4a.run',
+    'incomeexpense-connecttoamalmathew.b4a.run',
     # Add more origins if needed
 ]
 
